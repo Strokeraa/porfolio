@@ -194,19 +194,19 @@ export default function PortfolioLandingPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="mailto:seuemail@exemplo.com"
+              href="mailto:lgopereiraa@gmail.com"
               className="rounded-2xl bg-white px-5 py-3 font-medium text-neutral-950"
             >
-              seuemail@exemplo.com
+              lgopereiraa@gmail.com
             </a>
             <a
-              href="https://github.com/"
+              href="https://github.com/Strokeraa"
               className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white"
             >
               GitHub
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/luis-guilherme-pereiraa/"
               className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white"
             >
               LinkedIn
