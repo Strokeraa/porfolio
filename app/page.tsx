@@ -1,22 +1,28 @@
-export default function PortfolioLandingPage() {
+﻿export default function PortfolioLandingPage() {
   const projects = [
     {
       title: 'Projetos SAP & ABAP',
       description:
         'Melhorias, automações e integrações no SAP ECC com foco em processos industriais, relatórios e eficiência operacional.',
       tags: ['ABAP', 'SAP ECC', 'WM', 'Integrações'],
+      link: 'https://github.com/Strokeraa',
+      illustration: 'SAP',
     },
     {
       title: 'Dashboards e Dados',
       description:
         'Painéis e análises para apoiar tomada de decisão, acompanhamento de indicadores e visualização de processos.',
       tags: ['Power BI', 'APIs', 'Excel', 'Indicadores'],
+      link: 'https://github.com/Strokeraa',
+      illustration: 'BI',
     },
     {
       title: 'Sistemas Web Internos',
       description:
         'Aplicações simples e funcionais para controle interno, formulários, autenticação e automação de rotinas.',
       tags: ['HTML', 'CSS', 'JavaScript', 'Python'],
+      link: 'https://github.com/Strokeraa',
+      illustration: 'WEB',
     },
   ];
 
@@ -131,31 +137,50 @@ export default function PortfolioLandingPage() {
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">Projetos em destaque</h2>
               <p className="mt-3 text-neutral-400">
-                Alguns tipos de projeto que representam bem meu perfil profissional.
+                Cards em rotação horizontal contínua para você incluir mais projetos com link e ilustração.
               </p>
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-[28px] border border-white/10 bg-neutral-950 p-6 shadow-xl"
-              >
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-neutral-400">{project.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs text-blue-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-neutral-900 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-neutral-900 to-transparent" />
+
+            <div className="project-marquee flex w-max gap-6 pr-6">
+              {[...projects, ...projects].map((project, index) => (
+                <article
+                  key={`${project.title}-${index}`}
+                  className="w-[320px] rounded-[28px] border border-white/10 bg-neutral-950 p-6 shadow-xl"
+                >
+                  <div className="rounded-2xl border border-blue-400/20 bg-gradient-to-br from-blue-500/20 to-cyan-400/10 p-4">
+                    <p className="text-sm font-semibold tracking-[0.2em] text-blue-100">{project.illustration}</p>
+                  </div>
+
+                  <h3 className="mt-5 text-xl font-semibold">{project.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-neutral-400">{project.description}</p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs text-blue-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex rounded-xl border border-white/15 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+                  >
+                    Ver projeto
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -189,9 +214,6 @@ export default function PortfolioLandingPage() {
       <section id="contato" className="border-t border-white/10 bg-neutral-900">
         <div className="mx-auto max-w-4xl px-6 py-16 text-center md:px-10">
           <h2 className="text-3xl font-bold md:text-4xl">Vamos conversar?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-neutral-400">
-            Você pode usar esta seção para colocar seu e-mail, LinkedIn, GitHub e uma chamada para contato.
-          </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="mailto:lgopereiraa@gmail.com"
@@ -214,6 +236,7 @@ export default function PortfolioLandingPage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
